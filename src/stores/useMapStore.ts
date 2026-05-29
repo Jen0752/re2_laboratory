@@ -132,7 +132,7 @@ export const useMapStore = create<MapStore>((set) => ({
   mode: 'normal',
   setMode: (m) => set({ mode: m }),
 
-  floor: 'B1_left',
+  floor: '1F_top',
   setFloor: (f) => set({ floor: f }),
 
   activeCategories: new Set(ALL_CATEGORIES),

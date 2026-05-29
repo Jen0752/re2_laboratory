@@ -10,7 +10,7 @@ export const ALL_CATEGORY_IDS = [
   // door
   'keygate',
   // enemy
-  'enemy', 'mutated enemy', 'licker', 'tyrant',
+  'enemy', 'mutated enemy', 'licker', 'tyrant', 'plant enemy',
   // medicine
   'blue grass', 'first aid spray', 'green grass', 'red grass',
   // projectile

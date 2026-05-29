@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import maplibregl, { Marker as MapMarker } from 'maplibre-gl'
 import type { Map as MapLibreMap } from 'maplibre-gl'
 import { useMapStore, type CustomMarker } from '../stores/useMapStore'
-import { CATEGORIES } from '../data/markers'
+import { CATEGORIES, getIconSpriteClasses } from '../data/markers'
 import { preloadAllFloorImages } from '../utils/preload'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import MarkerEditModal from './MarkerEditModal'
@@ -301,20 +301,18 @@ export default function Map() {
     svg.appendChild(path)
     wrapper.appendChild(svg)
 
-    const img = document.createElement('img')
-    img.src = tempMarker.icon
-    img.style.cssText = `
+    const [iconBase, iconCat, iconPos] = getIconSpriteClasses(tempMarker.icon)
+    const iconDiv = document.createElement('div')
+    iconDiv.className = iconBase + ' ' + iconCat + ' ' + iconPos + ' icon-sz-26'
+    iconDiv.style.cssText = `
       position: absolute;
       top: 5px;
       left: 50%;
       transform: translateX(-50%);
-      width: 26px;
-      height: 26px;
-      object-fit: contain;
       pointer-events: none;
       z-index: 2;
     `
-    wrapper.appendChild(img)
+    wrapper.appendChild(iconDiv)
 
     // 创建临时标点
     new maplibregl.Marker({
@@ -391,21 +389,18 @@ export default function Map() {
       svg.appendChild(path)
       wrapper.appendChild(svg)
 
-      const img = document.createElement('img')
-      img.src = marker.icon
-      img.loading = 'lazy'
-      img.style.cssText = `
+      const [iconBase, iconCat, iconPos] = getIconSpriteClasses(marker.icon)
+      const iconDiv = document.createElement('div')
+      iconDiv.className = iconBase + ' ' + iconCat + ' ' + iconPos + ' icon-sz-26'
+      iconDiv.style.cssText = `
         position: absolute;
         top: 5px;
         left: 50%;
         transform: translateX(-50%);
-        width: 26px;
-        height: 26px;
-        object-fit: contain;
         pointer-events: none;
         z-index: 2;
       `
-      wrapper.appendChild(img)
+      wrapper.appendChild(iconDiv)
       return wrapper
     }
 
@@ -1089,11 +1084,7 @@ export default function Map() {
             {/* 标点图标预览 */}
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-re2-subtle/50 rounded-xl flex items-center justify-center overflow-hidden shadow-soft">
-                <img
-                  src={pendingMarker.icon}
-                  alt=""
-                  className="w-9 h-9 object-contain"
-                />
+                <div className={`${getIconSpriteClasses(pendingMarker.icon).join(' ')} icon-sz-36`} />
               </div>
               <div>
                 <p className="text-gray-700 text-sm font-medium">{pendingMarker.category}</p>
@@ -1249,7 +1240,7 @@ export default function Map() {
               {/* 主标题：图标 + 名称 */}
               <div className="flex items-center gap-3 px-5 pb-4">
                 <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
-                  <img src={marker.icon} alt="" className="w-7 h-7 object-contain" />
+                  <div className={`${getIconSpriteClasses(marker.icon).join(' ')} icon-sz-28`} />
                 </div>
                 <div className="flex flex-col gap-0.5">
                   <span className="text-gray-500 text-xs">{marker.category}</span>

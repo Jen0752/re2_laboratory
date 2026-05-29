@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react'
 import { useMapStore, type Character, type GameMode, type CustomMarker } from '../stores/useMapStore'
-import { FLOOR_ORDER, CATEGORIES } from '../data/markers'
+import { FLOOR_ORDER, CATEGORIES, getIconSpriteClasses } from '../data/markers'
 import { preloadFilterIcons } from '../hooks/usePreloadIcons'
 import {
   FilterIcon,
@@ -177,7 +177,6 @@ export default function Toolbar({ onFilterToggle, onRouteToggle, showFilter, sho
                 <p className="text-xs text-re2-muted mb-3">选择分类</p>
                 <div className="grid grid-cols-5 gap-2">
                   {CATEGORIES.map((cat) => {
-                    const iconPath = `./re2_map_laboratory_ui/loot%20ping/${cat.id}/${cat.icon}`
                     return (
                       <button
                         key={cat.id}
@@ -185,12 +184,7 @@ export default function Toolbar({ onFilterToggle, onRouteToggle, showFilter, sho
                         className="aspect-square bg-white rounded-lg overflow-hidden hover:shadow-soft transition-all duration-150 hover:scale-105 active:scale-95"
                         title={cat.name}
                       >
-                        <img
-                          src={iconPath.replace('loot%20ping', 'loot ping')}
-                          alt={cat.name}
-                          className="w-full h-full object-contain p-1.5"
-                          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-                        />
+                        <div className={`${getIconSpriteClasses('re2_map_laboratory_ui/loot ping/' + cat.id + '/' + cat.icon).join(' ')} icon-sz-28`} />
                       </button>
                     )
                   })}
@@ -212,7 +206,6 @@ export default function Toolbar({ onFilterToggle, onRouteToggle, showFilter, sho
                 </p>
                 <div className="grid grid-cols-4 gap-2">
                   {CATEGORIES.find(c => c.id === selectedCategory)?.subCategories.map((sub) => {
-                    const iconPath = `./re2_map_laboratory_ui/loot%20ping/${selectedCategory}/${sub.icon}`
                     return (
                       <button
                         key={sub.id}
@@ -220,12 +213,7 @@ export default function Toolbar({ onFilterToggle, onRouteToggle, showFilter, sho
                         className="aspect-square bg-white rounded-lg overflow-hidden hover:shadow-soft transition-all duration-150 hover:scale-105 active:scale-95 flex items-center justify-center p-1.5"
                         title={sub.name}
                       >
-                        <img
-                          src={iconPath.replace('loot%20ping', 'loot ping')}
-                          alt={sub.name}
-                          className="w-full h-full object-contain"
-                          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-                        />
+                        <div className={`${getIconSpriteClasses('re2_map_laboratory_ui/loot ping/' + selectedCategory + '/' + sub.icon).join(' ')} icon-sz-28`} />
                       </button>
                     )
                   })}

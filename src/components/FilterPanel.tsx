@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { useMapStore } from '../stores/useMapStore'
-import { CATEGORIES } from '../data/markers'
+import { CATEGORIES, getIconSpriteClasses } from '../data/markers'
 
 interface FilterPanelProps {
   onClose: () => void
@@ -13,9 +13,9 @@ export default function FilterPanel({ onClose }: FilterPanelProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
 
-  // 获取图标路径
-  const getIconSrc = (catId: string, iconName: string) => {
-    return `./re2_map_laboratory_ui/loot%20ping/${catId}/${iconName}`
+  // 获取图标 CSS sprite 类名
+  const getIconClasses = (catId: string, iconName: string) => {
+    return getIconSpriteClasses(`./re2_map_laboratory_ui/loot%20ping/${catId}/${iconName}`).join(' ')
   }
 
   useEffect(() => {
@@ -155,14 +155,7 @@ export default function FilterPanel({ onClose }: FilterPanelProps) {
                   }`}
                 >
                   <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-soft flex-shrink-0">
-                    <img
-                      src={getIconSrc(cat.id, cat.icon)}
-                      alt={cat.name}
-                      className="w-6 h-6 object-contain"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none'
-                      }}
-                    />
+                    <div className={`${getIconClasses(cat.id, cat.icon)} icon-sz-28`} />
                   </div>
                   <span className={`text-xs flex-1 text-left ${isActive ? 'text-gray-700 font-medium' : 'text-re2-muted'}`}>{cat.name}</span>
                   <svg className="w-3 h-3 text-re2-subtle flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -186,14 +179,7 @@ export default function FilterPanel({ onClose }: FilterPanelProps) {
                   <div className="flex items-center justify-between mb-3 pb-2 border-b border-re2-subtle">
                     <div className="flex items-center gap-2.5">
                       <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-soft">
-                        <img
-                          src={getIconSrc(cat.id, cat.icon)}
-                          alt={cat.name}
-                          className="w-5 h-5 object-contain"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).style.display = 'none'
-                          }}
-                        />
+                        <div className={`${getIconClasses(cat.id, cat.icon)} icon-sz-28`} />
                       </div>
                       <span className="text-sm font-medium text-gray-700">{cat.name}</span>
                     </div>
@@ -220,14 +206,7 @@ export default function FilterPanel({ onClose }: FilterPanelProps) {
                           }`}
                         >
                           <div className="w-10 h-10 bg-re2-subtle/30 rounded-lg flex items-center justify-center overflow-hidden">
-                            <img
-                              src={getIconSrc(cat.id, sub.icon)}
-                              alt={sub.name}
-                              className="w-7 h-7 object-contain"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).style.display = 'none'
-                              }}
-                            />
+                            <div className={`${getIconClasses(cat.id, sub.icon)} icon-sz-28`} />
                           </div>
                           <span className={`text-xs ${isActive ? 'text-gray-700 font-medium' : 'text-re2-muted'}`}>
                             {sub.name}

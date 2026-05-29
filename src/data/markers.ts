@@ -1,6 +1,21 @@
 import type { MarkerItem } from '../stores/useMapStore'
+import iconSpriteMap from './icon-sprite-map.json'
 
 export const FLOOR_ORDER = ['1F_top', '1F_right', 'B1_right', '1F_left', 'B1_left', 'B2', 'B3'] as const
+
+// Map icon paths to CSS sprite classes
+export function getIconSpriteClasses(iconPath: string): string[] {
+  // Extract category/filename from paths like:
+  // "./re2_map_laboratory_ui/loot%20ping/enemy/enemy.webp"
+  // "./re2_map_laboratory_ui/loot ping/enemy/enemy.webp"
+  const cleaned = decodeURIComponent(iconPath.replace(/^\.?\//, ''))
+  const match = cleaned.match(/loot\s*ping\/(.+)$/i)
+  if (!match) return ['icon-sprite']
+  const key = match[1] // e.g., "enemy/enemy.webp"
+  const classes = (iconSpriteMap as Record<string, string[]>)[key]
+  if (!classes) return ['icon-sprite']
+  return ['icon-sprite', ...classes]
+}
 
 export interface SubCategory {
   id: string

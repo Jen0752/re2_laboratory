@@ -1,128 +1,123 @@
-/* ============================================
-   Icon Sprites for different display sizes
-   Each sprite has 10 columns x 4 rows
-   ============================================ */
+/* Per-category sprite icons - percentage-based for any size */
 
-/* Base sprite class */
 .icon-sprite {
+  display: inline-block;
   background-repeat: no-repeat;
-  display: block;
-}
-
-/* 32px icons sprite */
-.icon-sprite-32 {
-  background-image: url("/re2_map_laboratory_ui/icons-sprite-32.png");
-  background-size: 320px 128px;
   width: 32px;
   height: 32px;
 }
 
-/* 40px icons sprite */
-.icon-sprite-40 {
-  background-image: url("/re2_map_laboratory_ui/icons-sprite-40.png");
-  background-size: 400px 160px;
-  width: 40px;
-  height: 40px;
+/* bullet - 10 icons */
+.icon-bullet {
+  background-image: url("/re2_map_laboratory_ui/sprites/bullet.webp");
+  background-size: 1000% auto;
 }
+.icon-bullet-0 { background-position: 0.00% 0; }
+.icon-bullet-1 { background-position: 11.11% 0; }
+.icon-bullet-2 { background-position: 22.22% 0; }
+.icon-bullet-3 { background-position: 33.33% 0; }
+.icon-bullet-4 { background-position: 44.44% 0; }
+.icon-bullet-5 { background-position: 55.56% 0; }
+.icon-bullet-6 { background-position: 66.67% 0; }
+.icon-bullet-7 { background-position: 77.78% 0; }
+.icon-bullet-8 { background-position: 88.89% 0; }
+.icon-bullet-9 { background-position: 100.00% 0; }
 
-/* 56px icons sprite */
-.icon-sprite-56 {
-  background-image: url("/re2_map_laboratory_ui/icons-sprite-56.png");
-  background-size: 560px 224px;
-  width: 56px;
-  height: 56px;
+/* checkpoint - 3 icons */
+.icon-checkpoint {
+  background-image: url("/re2_map_laboratory_ui/sprites/checkpoint.webp");
+  background-size: 300% auto;
 }
+.icon-checkpoint-0 { background-position: 0.00% 0; }
+.icon-checkpoint-1 { background-position: 50.00% 0; }
+.icon-checkpoint-2 { background-position: 100.00% 0; }
 
-/* ============================================
-   Icon Positions - Row 0 (y=0): bullet, checkpoint
-   ============================================ */
+/* collection - 7 icons */
+.icon-collection {
+  background-image: url("/re2_map_laboratory_ui/sprites/collection.webp");
+  background-size: 700% auto;
+}
+.icon-collection-0 { background-position: 0.00% 0; }
+.icon-collection-1 { background-position: 16.67% 0; }
+.icon-collection-2 { background-position: 33.33% 0; }
+.icon-collection-3 { background-position: 50.00% 0; }
+.icon-collection-4 { background-position: 66.67% 0; }
+.icon-collection-5 { background-position: 83.33% 0; }
+.icon-collection-6 { background-position: 100.00% 0; }
 
-/* bullet column */
-.icon-bullet-_1_bullet { background-position: 0px 0px; }
-.icon-bullet-acid-bomb { background-position: -32px 0px; }
-.icon-bullet-fire-bomb { background-position: -64px 0px; }
-.icon-bullet-magnum-bullet { background-position: -96px 0px; }
-.icon-bullet-pistol-bullets { background-position: -128px 0px; }
-.icon-bullet-shotgun-bullet { background-position: -160px 0px; }
-.icon-bullet-submachine-gun-bullets { background-position: -192px 0px; }
+/* door - 2 icons */
+.icon-door {
+  background-image: url("/re2_map_laboratory_ui/sprites/door.webp");
+  background-size: 200% auto;
+}
+.icon-door-0 { background-position: 0.00% 0; }
+.icon-door-1 { background-position: 100.00% 0; }
 
-/* checkpoint column */
-.icon-checkpoint-_1_checkpoint { background-position: -224px 0px; }
-.icon-checkpoint-lnk-ribbon { background-position: -256px 0px; }
-.icon-checkpoint-typewriter { background-position: -288px 0px; }
+/* enemy - 6 icons */
+.icon-enemy {
+  background-image: url("/re2_map_laboratory_ui/sprites/enemy.webp");
+  background-size: 600% auto;
+}
+.icon-enemy-0 { background-position: 0.00% 0; }
+.icon-enemy-1 { background-position: 20.00% 0; }
+.icon-enemy-2 { background-position: 40.00% 0; }
+.icon-enemy-3 { background-position: 60.00% 0; }
+.icon-enemy-4 { background-position: 80.00% 0; }
+.icon-enemy-5 { background-position: 100.00% 0; }
 
-/* ============================================
-   Icon Positions - Row 1 (y=-32px/-40px/-56px): collection, door, enemy
-   ============================================ */
+/* medicine - 5 icons */
+.icon-medicine {
+  background-image: url("/re2_map_laboratory_ui/sprites/medicine.webp");
+  background-size: 500% auto;
+}
+.icon-medicine-0 { background-position: 0.00% 0; }
+.icon-medicine-1 { background-position: 25.00% 0; }
+.icon-medicine-2 { background-position: 50.00% 0; }
+.icon-medicine-3 { background-position: 75.00% 0; }
+.icon-medicine-4 { background-position: 100.00% 0; }
 
-/* collection column */
-.icon-collection-_1_collection { background-position: 0px -32px; }
-.icon-collection-Fanny-pack { background-position: -32px -32px; }
-.icon-collection-document { background-position: -64px -32px; }
-.icon-collection-locked-container { background-position: -96px -32px; }
-.icon-collection-map { background-position: -128px -32px; }
-.icon-collection-raccoon-toy { background-position: -160px -32px; }
+/* projectile - 4 icons */
+.icon-projectile {
+  background-image: url("/re2_map_laboratory_ui/sprites/projectile.webp");
+  background-size: 400% auto;
+}
+.icon-projectile-0 { background-position: 0.00% 0; }
+.icon-projectile-1 { background-position: 33.33% 0; }
+.icon-projectile-2 { background-position: 66.67% 0; }
+.icon-projectile-3 { background-position: 100.00% 0; }
 
-/* door column */
-.icon-door-_1_door { background-position: -192px -32px; }
-.icon-door-keygate { background-position: -224px -32px; }
+/* puzzle item - 3 icons */
+.icon-puzzle-item {
+  background-image: url("/re2_map_laboratory_ui/sprites/puzzle%20item.webp");
+  background-size: 300% auto;
+}
+.icon-puzzle-item-0 { background-position: 0.00% 0; }
+.icon-puzzle-item-1 { background-position: 50.00% 0; }
+.icon-puzzle-item-2 { background-position: 100.00% 0; }
 
-/* enemy column */
-.icon-enemy-_1_enemy { background-position: -256px -32px; }
-.icon-enemy-enemy { background-position: -288px -32px; }
-.icon-enemy-mutated-enemy { background-position: -320px -32px; }
+/* tip - 4 icons */
+.icon-tip {
+  background-image: url("/re2_map_laboratory_ui/sprites/tip.webp");
+  background-size: 400% auto;
+}
+.icon-tip-0 { background-position: 0.00% 0; }
+.icon-tip-1 { background-position: 33.33% 0; }
+.icon-tip-2 { background-position: 66.67% 0; }
+.icon-tip-3 { background-position: 100.00% 0; }
 
-/* medicine column (extends to row 2) */
-.icon-medicine-_1_medicine { background-position: -352px -32px; }
-.icon-medicine-blue-grass { background-position: -384px -32px; }
-.icon-medicine-first-aid-spray { background-position: -416px -32px; }
-.icon-medicine-green-grass { background-position: -448px -32px; }
-.icon-medicine-red-grass { background-position: -480px -32px; }
+/* weapon - 3 icons */
+.icon-weapon {
+  background-image: url("/re2_map_laboratory_ui/sprites/weapon.webp");
+  background-size: 300% auto;
+}
+.icon-weapon-0 { background-position: 0.00% 0; }
+.icon-weapon-1 { background-position: 50.00% 0; }
+.icon-weapon-2 { background-position: 100.00% 0; }
 
-/* ============================================
-   Icon Positions - Row 2 (y=-64px/-80px/-112px): projectile, puzzle, tip, weapon
-   ============================================ */
-
-/* projectile column */
-.icon-projectile-_1_projectile { background-position: 0px -64px; }
-.icon-projectile-dagger { background-position: -32px -64px; }
-.icon-projectile-flashbang { background-position: -64px -64px; }
-.icon-projectile-grenade { background-position: -96px -64px; }
-
-/* puzzle-item column */
-.icon-puzzle-item-_1_puzzle-item { background-position: -128px -64px; }
-.icon-puzzle-item-important-props { background-position: -160px -64px; }
-.icon-puzzle-item-key { background-position: -192px -64px; }
-
-/* tip column */
-.icon-tip-_1_tips { background-position: -224px -64px; }
-.icon-tip-guidance-tips { background-position: -256px -64px; }
-.icon-tip-mechanisms { background-position: -288px -64px; }
-.icon-tip-street-sign { background-position: -320px -64px; }
-
-/* weapon column */
-.icon-weapon-_1_weapon { background-position: -352px -64px; }
-.icon-weapon-weapon-accessories { background-position: -384px -64px; }
-.icon-weapon-weapon { background-position: -416px -64px; }
-
-/* medicine continued (row 3 for 32px sprite) */
-.icon-medicine-_1_medicine-32 { background-position: -352px -64px; }
-.icon-medicine-blue-grass-32 { background-position: -384px -64px; }
-.icon-medicine-first-aid-spray-32 { background-position: -416px -64px; }
-.icon-medicine-green-grass-32 { background-position: -448px -64px; }
-.icon-medicine-red-grass-32 { background-position: -480px -64px; }
-
-/* ============================================
-   Row-based Y positions for different sizes
-   ============================================ */
-.icon-sprite-32 .row-1 { background-position-y: -32px; }
-.icon-sprite-32 .row-2 { background-position-y: -64px; }
-.icon-sprite-32 .row-3 { background-position-y: -96px; }
-
-.icon-sprite-40 .row-1 { background-position-y: -40px; }
-.icon-sprite-40 .row-2 { background-position-y: -80px; }
-.icon-sprite-40 .row-3 { background-position-y: -120px; }
-
-.icon-sprite-56 .row-1 { background-position-y: -56px; }
-.icon-sprite-56 .row-2 { background-position-y: -112px; }
-.icon-sprite-56 .row-3 { background-position-y: -168px; }
+/* Size variants - percentage positions auto-scale */
+.icon-sprite.icon-sz-24 { width: 24px; height: 24px; }
+.icon-sprite.icon-sz-20 { width: 20px; height: 20px; }
+.icon-sprite.icon-sz-28 { width: 28px; height: 28px; }
+.icon-sprite.icon-sz-40 { width: 40px; height: 40px; }
+.icon-sprite.icon-sz-26 { width: 26px; height: 26px; }
+.icon-sprite.icon-sz-36 { width: 36px; height: 36px; }

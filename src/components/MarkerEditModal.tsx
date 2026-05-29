@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { type PendingMarkerBase } from '../stores/useMapStore'
+import { getIconSpriteClasses } from '../data/markers'
 
 interface Props {
   pendingMarker: PendingMarkerBase
@@ -142,7 +143,7 @@ export default function MarkerEditModal({
       <div className="p-4 overflow-y-auto" style={{ maxHeight: 'calc(80vh - 120px)' }}>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 bg-re2-subtle/50 rounded-xl flex items-center justify-center overflow-hidden shadow-soft">
-            <img src={pendingMarker.icon} alt="" className="w-9 h-9 object-contain" />
+            <div className={`${getIconSpriteClasses(pendingMarker.icon).join(' ')} icon-sz-36`} />
           </div>
           <div>
             <p className="text-gray-700 text-sm font-medium">{pendingMarker.name}</p>
